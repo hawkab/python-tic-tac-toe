@@ -1,2 +1,2 @@
 # python-tic-tac-toe
-Game TIC-TAC-toe in the programming language Python.
+The game "noughts and crosses" in the programming language Python, using the Django framework.
