@@ -1,0 +1,41 @@
+<!doctype html>
+<meta charset=utf-8>
+<title>Крестики-нолики</title>
+{% load staticfiles %}
+<link rel=stylesheet href="{% static "home/css/style.css" %}">
+<script src="{% static "home/langs" %}"></script>
+<div id=overlay>
+	<div id=registration>
+		<a id=lang class=close href=# onclick="SwitchLanguage('');" title="English"></a>
+		<h1 id="intro">Представьтесь, пожалуйста</h1>
+		
+		<form method='Post' action='players/' id="auth">{% csrf_token %}
+		<div id="validate_status"></div>
+			<input maxlength="10" speech placeholder="Ваш никнейм" id="id_nick" name="nick" type=text autofocus onKeyPress="javascript: if (event.keyCode==13) document.getElementById('pass').focus();">
+			<input maxlength="10" placeholder="Пароль" id="pass" name="passw" type=password onKeyPress="javascript: if (event.keyCode==13) Validate();">
+			<a href=# id="submit" class=confirm onclick="Validate();">Войти</a>
+		</form>
+	</div>
+</div>
+<div id=overlay2>
+	<div id=centering>
+		<div id="players"></div>	
+		<div id="busy"><h1>Активные игры</h1></div>
+		<div id="game"><label id="status">Игра</label><br>
+			<div id='square9' class="blockBottomRight" onmouseover="MouseOver('square9')" onmouseout="MouseOut('square9')" onclick="Move('square9');"></div>
+			<div id='square8' class="blockC32" onmouseover="MouseOver('square8')" onmouseout="MouseOut('square8')" onclick="Move('square8');"></div>
+			<div id='square7' class="blockBottomLeft" onmouseover="MouseOver('square7')" onmouseout="MouseOut('square7')" onclick="Move('square7');"></div>
+			<div id='square6' class="blockC23" onmouseover="MouseOver('square6')" onmouseout="MouseOut('square6')" onclick="Move('square6');"></div>
+			<div id='square5' class="blockC22" onmouseover="MouseOver('square5')" onmouseout="MouseOut('square5')" onclick="Move('square5');"></div>
+			<div id='square4' class="blockC21" onmouseover="MouseOver('square4')" onmouseout="MouseOut('square4')" onclick="Move('square4');"></div>
+			<div id='square3' class="blockTopRight" onmouseover="MouseOver('square3')" onmouseout="MouseOut('square3')" onclick="Move('square3');"></div>
+			<div id='square2' class="blockC12" onmouseover="MouseOver('square2')" onmouseout="MouseOut('square2')" onclick="Move('square2');"></div>
+			<div id='square1' class="blockTopLeft" onmouseover="MouseOver('square1')" onmouseout="MouseOut('square1')" onclick="Move('square1');"></div>
+			<textarea id=messages rows="4" wrap=soft readonly></textarea>
+			<textarea maxlength="70" id=message rows="1" wrap=soft class=message onKeyPress="javascript: if (event.keyCode==13) SetMessage();"></textarea>
+			<canvas id="a"></canvas>
+		</div>
+		<div id="invitation"></div>
+	</div>	
+</div>
+<script src="{% static "home/js/interface.js" %}"></script>

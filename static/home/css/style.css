@@ -1,0 +1,325 @@
+:not(button) {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font: 500 13px "helvetica neue", helvetica, arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  color: black;
+}
+textarea {
+	position: absolute;
+	right: 0;
+	bottom: 8.5%;
+	left: 31px;
+	width: 378px;
+	resize: none;
+	background-color: #99999F;
+	border-radius: 5px 5px 5px 5px;
+	color: #FFFFFF;
+} 
+#message {
+	bottom: 3.8%;
+	height: 20px;
+	color: #040810;
+	background-color: #fff;
+	font: 500 14px "helvetica neue", helvetica, arial, sans-serif;
+}
+a {
+  color: #040810;
+  color: #1394BF;
+  text-decoration: none;
+}
+p {
+  display: inline-block;
+  margin-top: 150px;
+  padding: 5px 7px 5px 8px;
+  border: 1px solid #E9EBED;
+  border-radius: 5px;
+}
+
+p button {
+  margin-left: 28px;
+}
+
+#overlay, #overlay2, #registration, #players, #invitation, #busy, #game {
+  opacity: 0;
+  transition: .5s;
+}
+
+#overlay {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,50,100,.50);
+  background: linear-gradient(to bottom left, #F6B8CD, #0E153A);  
+  pointer-events: none;
+}
+#overlay2 {
+  position: absolute;
+  overflow: hidden;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,50,100,.50);
+  background: linear-gradient(to bottom right, #F6B8CD, #0E153A);  
+  pointer-events: none;
+}
+#tooltip {
+  font: 500 13px "helvetica neue", helvetica, arial, sans-serif;
+  color: gray;
+}
+#score {
+  text-align: left;
+}
+#overlay.open, #overlay2.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+#registration {
+  position: relative;
+  width: 170px;
+  margin: 15% auto 0;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 3px 15px rgba(15,27,39,.4);
+  background: #fff;
+  -webkit-transform: translateY(80%) scale(.8);
+  transform: translateY(80%) scale(.8);
+  transition-timing-function: cubic-bezier(.3, 0, 0, 1.1);
+  transition-delay: .4s;
+}
+#centering {
+	width: 40%;
+    position: absolute;
+	left: 10%;
+}
+ #players {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  width: 180px;
+  margin: 0 auto 0;
+  padding: 20px;
+  border-radius: 9px;
+  box-shadow: 0 2px 12px rgba(15,27,39,.4);
+  background: #fff;
+  -webkit-transform: translateY(80%) scale(.8);
+  transform: translateY(80%) scale(.8);
+  transition-timing-function: linear;
+  transition-delay: .2s;
+  transition-duration: .1s;
+} 
+#invitation {
+  position: relative;
+  width: 220px;
+  top: 100px;
+  margin: 20% auto 0;
+  padding: 20px;
+  border-radius: 9px;
+  box-shadow: 0 2px 12px rgba(15,27,39,.4);
+  background: #fff;
+  -webkit-transform: translateY(80%) scale(.8);
+  transform: translateY(80%) scale(.8);
+  transition-timing-function: linear;
+  transition-delay: .2s;
+  transition-duration: .1s;
+}
+#busy {
+  position: absolute;
+  left: 20px;
+  top: 150px;
+  margin: 0 auto 0;
+  width: 180px;
+  padding: 20px;
+  border-radius: 9px;
+  box-shadow: 0 2px 12px rgba(15,27,39,.4);
+  background: #fff;
+  -webkit-transform: translateY(80%) scale(.8);
+  transform: translateY(80%) scale(.8);
+  transition-timing-function: linear;
+  transition-delay: .2s;
+  transition-duration: .1s;
+}
+#game {
+  position: absolute;
+  width: 405px;
+  height: 450px;
+  left: 250px;
+  top: 20px;
+  margin: 0 auto 0;
+  margin-left: 1%;
+  padding: 20px;
+  border-radius: 9px;
+  box-shadow: 0 2px 12px rgba(15,27,39,.4);
+  background: #fff;
+  -webkit-transform: translateY(80%) scale(.8);
+  transform: translateY(80%) scale(.8);
+  transition-timing-function: linear;
+  transition-delay: .2s;
+  transition-duration: .1s;
+}
+.open #registration, .open #players, .open #invitation, .open #busy, .open #game {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  pointer-events: auto;
+}
+
+#players .close, #busy  .close, #game  .close, #registration .close {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 7px;
+  top: 7px;
+  text-indent: -9000px;
+  background-image: url(close.png);
+}
+#registration .close {
+  background-image: url(u.png);
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  #players .close, #busy  .close, #game  .close  {
+    background-image: url(close@2x.png);
+    background-size: 100% 100%;
+  }
+    #registration .close  {
+    background-image: url(uk.png);
+    background-size: 20px 20px;
+  }
+}
+
+#registration h1,#players h1,#invitation h1, #busy  h1, #game  h1 {
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1A3547;
+}
+
+input {
+  display: block;
+  width: 152px;
+  padding: 8px;
+  border: 1px solid #E9EBED;
+  border-radius: 5px 5px 0 0;
+  font: 500 13px "helvetica neue", helvetica, arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+input.error {
+   border: 1px solid #F85072;
+}
+
+input:focus {
+  outline: none;
+}
+
+[type=password] {
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+}
+
+::-webkit-input-placeholder {
+  color: #AFB9BF;
+}
+
+::-moz-placeholder {
+  color: #AFB9BF;
+}
+
+:-ms-input-placeholder {
+  color: #AFB9BF;
+}
+
+.confirm {
+  display: block;
+  margin-top: 20px;
+  padding: 8px 0;
+  border: 1px solid #E9EBED;
+  border-radius: 5px;
+  background: #FAFAFB;
+  width: 100%;
+  cursor: pointer;
+  color: #040810;
+}
+.accept {
+  display: block;
+  margin-top: 20px;
+  padding: 8px 0;
+  border: 1px solid green;
+  border-radius: 5px;
+  background: #FAFAFB;
+  width: 40%;
+  cursor: pointer;
+  color: #040810;
+  float:left;
+}
+.decline {
+  display: block;
+  margin-top: 20px;
+  padding: 8px 0;
+  border: 1px solid red;
+  border-radius: 5px;
+  background: #FAFAFB;
+  width: 40%;
+  cursor: pointer;
+  color: #040810;
+  float:right
+}
+a.tooltip {outline:none; }
+a.tooltip strong {line-height:30px;}
+a.tooltip:hover {text-decoration:none;} 
+a.tooltip span {
+    z-index:10;display:none; padding:14px 20px;
+    margin-top:-30px; margin-left:28px;
+    width:200px; line-height:16px;
+}
+a.tooltip:hover span{
+    display:inline; position:absolute; color:#111;
+    border:1px solid #DCA; background:#fffAF0;}
+.callout {z-index:20;position:absolute;top:30px;border:0;left:-12px;}
+    
+/*CSS3 extras*/
+a.tooltip span{border-radius:4px;}
+
+.blockTopLeft,.blockTopRight,.blockBottomLeft,.blockBottomRight,.blockC12,.blockC21,.blockC22,.blockC23,.blockC32 { 
+	position: absolute;
+	width: 100px; 
+	height: 100px; 
+	background: rgba(200,70,100,.30);
+	padding: 5px;
+	padding-right: 20px; 
+	border: 1px solid #E9EBED;
+	float: left;
+	margin:1px;
+	cursor: pointer;
+	font: 500 100px "helvetica neue", helvetica, arial, sans-serif;
+	text-align: center;
+}
+a.square:hover blockTopLeft { 
+	box-shadow: 0 0 10px rgba(15,27,39,.4);
+}
+.blockTopLeft,.blockBottomLeft,.blockC21 {left: 30px;}
+.blockC22,.blockC12,.blockC32 { left: 156px;}
+.blockC23,.blockBottomRight,.blockTopRight {left: 282px;}
+.blockTopLeft,.blockC12,.blockTopRight {top:  40px;}
+.blockC21,.blockC22,.blockC23  { top:  151px;}
+.blockC32,.blockBottomRight,.blockBottomLeft { top:  262px;}
+.blockTopLeft {border-radius: 10px 0 0 0;}
+.blockTopRight {border-radius: 0 10px 0 0;}
+.blockBottomLeft { border-radius: 0 0 0 10px;}
+.blockBottomRight { border-radius: 0 0 10px 0;}
+canvas { 
+	position: relative;
+	width: 360px; 
+	height: 330px; 
+	padding: 5px;
+	padding-right: 20px; 
+	top: 13px;
+	margin:1px;
+}
